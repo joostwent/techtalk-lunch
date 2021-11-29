@@ -1,0 +1,43 @@
+az login
+# enable cluster monitoring
+az provider register --namespace Microsoft.OperationsManagement
+az provider register --namespace Microsoft.OperationalInsights
+
+# init variables
+$suffix = "euw-aks-techtalk"
+$suffix_short = "euwakstechtalk"
+$rg = "rg-$suffix"
+$pubip = "pip-$suffix"
+$vnet = "vnet-$suffix"
+$snet = "snet-$suffix"
+$appgw = "appgw-$suffix"
+$acr = "acr$suffix_short"
+$acrhost = "$acr.azurecr.io"
+$aks = "aks-$suffix"
+$location = "westeurope"
+
+# create resource group
+az group create --name $rg --location $location
+
+# create acr
+az acr create -n $acr -g $rg --sku basic
+
+# install aks
+az aks create --resource-group $rg `
+    --name $aks `
+    --node-count 1 `
+    --enable-addons monitoring,ingress-appgw `
+    --appgw-name $appgw `
+    --appgw-subnet-cidr "10.2.0.0/16" `
+    --generate-ssh-keys `
+    --enable-managed-identity
+
+# attach acr after the managed identity above has been created
+az aks update -n $aks -g $rg --attach-acr $acr
+
+# install kubetl if you haven't done already; rtfm the output so kubectl is your path
+az aks install-cli
+az aks get-credentials -g $rg -n $aks
+az aks check-acr -n $aks -g $rg --acr $acrhost
+
+az group delete --name $rg
