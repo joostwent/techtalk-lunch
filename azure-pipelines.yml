@@ -37,3 +37,17 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+- stage: Deploy
+  displayName: Deploy to Kubernetes
+  jobs:
+  - job: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    steps:   
+    - task: KubernetesManifest@0
+      inputs:
+        action: 'deploy'
+        kubernetesServiceConnection: 'akstechtalk'
+        namespace: 'techtalk'
+        manifests: '**/*.yml'
+        containers: '$(containerRegistry)/blazorsample'
