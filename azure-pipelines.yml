@@ -28,7 +28,7 @@ stages:
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
-        buildContext: 'sample-app/'
+        buildContext: 'sample-app/BlazorSample/'
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
