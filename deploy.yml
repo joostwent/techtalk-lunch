@@ -46,7 +46,7 @@ spec:
   selector:
     service: blazorsample
 ---
-apiVersion: v1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: techtalk
