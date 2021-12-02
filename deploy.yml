@@ -46,10 +46,10 @@ spec:
   selector:
     service: blazorsample
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: guestbook
+  name: techtalk
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:

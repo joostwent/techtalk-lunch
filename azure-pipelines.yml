@@ -44,7 +44,7 @@ stages:
     - task: KubernetesManifest@0
       inputs:
         action: 'deploy'
-        kubernetesServiceConnection: 'b085ca65-431e-4068-bc7f-0b41d0a21e44'
+        kubernetesServiceConnection: 'akstechtalk'
         namespace: 'techtalk'
         manifests: '**/*.yml'
-        containers: '$(containerRegistry)/blazorsample'
+        containers: '$(containerRegistry)/$(imageRepository):$(tag)'
