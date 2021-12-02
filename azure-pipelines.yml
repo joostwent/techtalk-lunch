@@ -6,7 +6,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'b36d2153-fb8e-463a-a436-492d30727502'
+  dockerRegistryServiceConnection: 'c715335b-8e35-4502-9701-fe1c16667cc6'
   imageRepository: 'blazorsample'
   containerRegistry: 'acreuwakstechtalk.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/sample-app/BlazorSample/Server/Dockerfile'
