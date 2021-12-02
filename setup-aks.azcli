@@ -41,7 +41,10 @@ az aks get-credentials -g $rg -n $aks
 az aks check-acr -n $aks -g $rg --acr $acrhost
 az group delete --name $rg --no-wait
 
+# random kubectl commands for troubleshooting
 kubectl get serviceaccounts
-kubectl describe serviceaccount azdev-sa-f4f4eb 
-kubectl auth can-i create pods --as=system:serviceaccount:default:azdev-sa-f4f4eb 
-kubectl get clusterroles
+kubectl get namespaces
+kubectl delete serviceaccount azdev-sa-f4f4eb    
+kubectl auth can-i create pods -n default --as=system:serviceaccount:default:azdev-sa-f4f4eb 
+kubectl get pods -n techtalk
+kubectl delete ingress guestbook -n techtalk
