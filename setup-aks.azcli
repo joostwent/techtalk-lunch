@@ -40,4 +40,4 @@ az aks install-cli
 az aks get-credentials -g $rg -n $aks
 az aks check-acr -n $aks -g $rg --acr $acrhost
 
-az group delete --name $rg
+az group delete --name $rg --no-wait
