@@ -39,5 +39,9 @@ az aks update -n $aks -g $rg --attach-acr $acr
 az aks install-cli
 az aks get-credentials -g $rg -n $aks
 az aks check-acr -n $aks -g $rg --acr $acrhost
-
 az group delete --name $rg --no-wait
+
+kubectl get serviceaccounts
+kubectl describe serviceaccount azdev-sa-f4f4eb 
+kubectl auth can-i create pods --as=system:serviceaccount:default:azdev-sa-f4f4eb 
+kubectl get clusterroles
