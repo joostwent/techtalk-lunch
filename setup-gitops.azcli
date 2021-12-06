@@ -12,6 +12,7 @@ flux create kustomization podsample `
   --interval=1m `
   --export
 flux reconcile kustomization podsample --with-source  
+kubectl get events -n gitopsdemo
 flux get kustomizations 
 flux get sources
 fluxy delete kustomization flux-system
