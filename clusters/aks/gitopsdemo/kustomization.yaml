@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: podsample
+  namespace: flux-system
+spec:
+  interval: 30s
+  ref:
+    branch: gitops-dev
+  url: https://github.com/joostwent/techtalk-lunch/clusters/aks/gitopsdemo
