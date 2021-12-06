@@ -17,12 +17,12 @@ spec:
     spec:
       containers:
         - name: blazorsample
-          image: acreuwakstechtalk.azurecr.io/blazorsample:67
+          image: acreuwakstechtalk.azurecr.io/blazorsample:71
           imagePullPolicy: IfNotPresent
           resources:
             requests:
               memory: "256Mi"
-              cpu: "250m"
+              cpu: "50m"
             limits:
               memory: "2048Mi"
               cpu: "500m"
@@ -49,7 +49,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: techtalk
+  name: gitopsdemo
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
