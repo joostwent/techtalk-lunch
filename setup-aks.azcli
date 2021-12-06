@@ -51,3 +51,4 @@ kubectl get pods -n techtalk -o wide
 kubectl get pods -n gitopsdemo
 kubectl describe ingress techtalk -n techtalk
 kubectl get ingress -n techtalk
+kubectl create namespace gitopsdemo

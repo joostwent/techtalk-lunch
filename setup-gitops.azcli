@@ -11,7 +11,7 @@ flux create kustomization podsample `
   --prune=true `
   --interval=1m `
   --export
-flux reconcile kustomization flux-system --with-source  
+flux reconcile kustomization podsample --with-source  
 flux get kustomizations 
 flux get sources
 fluxy delete kustomization flux-system
