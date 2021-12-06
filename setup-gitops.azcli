@@ -3,12 +3,15 @@ choco install flux # note: need to do this in admin mode
 # create a personal access token with repo access, then execute
 flux bootstrap github --owner joostwent --repository techtalk-lunch --path clusters/aks --personal --branch gitops-dev
 flux check
-flux create source git podsample --url https://github.com/joostwent/clusters/aks/gitopsdemo --branch gitops-dev --interval 30s --export
+flux create source git podsample --url https://github.com/joostwent/techtalk-lunch --branch gitops-dev --interval 30s --export
 flux create kustomization podsample `
   --target-namespace=gitopsdemo `
   --source=podsample `
   --path="./kustomize" `
   --prune=true `
-  --interval=5m `
+  --interval=1m `
   --export
-flux get kustomizations --watch
+flux reconcile kustomization podsample --with-source  
+flux get kustomizations 
+flux get sources
+fluxy delete kustomization flux-system
