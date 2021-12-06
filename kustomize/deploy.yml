@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: blazorsample
-          image: acreuwakstechtalk.azurecr.io/blazorsample:62 # upgrade to 71 for GitOps demo
+          image: acreuwakstechtalk.azurecr.io/blazorsample:71 # downgrade to 62 for GitOps demo
           imagePullPolicy: IfNotPresent
           resources:
             requests:
