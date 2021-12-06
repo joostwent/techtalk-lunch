@@ -43,9 +43,11 @@ az group delete --name $rg --no-wait
 
 # random kubectl commands for checking K8s
 kubectl get serviceaccounts
-kubectl get namespaces
+kubectl get namespaces -w
+kubectl delete namespace gitopsdemo
 kubectl delete serviceaccount azdev-sa-f4f4eb    
 kubectl auth can-i create pods -n default --as=system:serviceaccount:default:azdev-sa-f4f4eb 
 kubectl get pods -n techtalk -w
+kubectl get pods -n gitopsdemo
 kubectl describe ingress techtalk -n techtalk
 kubectl get ingress -n techtalk
