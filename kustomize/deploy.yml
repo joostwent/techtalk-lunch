@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: blazorsample
-          image: acreuwakstechtalk.azurecr.io/blazorsample:75 # switch between 62 and 71
+          image: acreuwakstechtalk.azurecr.io/blazorsample:71
           imagePullPolicy: IfNotPresent
           resources:
             requests:
