@@ -1,6 +1,6 @@
 choco install flux # note: need to do this in admin mode
 
-# create a personal access token with repo access, then execute
+# create a personal access token in github with repo access, then execute the commands below
 flux bootstrap github --owner joostwent --repository techtalk-lunch --path clusters/aks --personal --branch gitops-dev
 flux check
 flux create source git podsample --url https://github.com/joostwent/techtalk-lunch --branch gitops-dev --interval 30s --export
