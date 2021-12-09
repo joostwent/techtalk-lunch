@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: blazorsample
-          image: acreuwakstechtalk.azurecr.io/blazorsample:62
+          image: acreuwakstechtalk.azurecr.io/blazorsample:77
           imagePullPolicy: IfNotPresent
           resources:
             requests:
